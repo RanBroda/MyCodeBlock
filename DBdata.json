@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Async case",
+    "code": "console.log('Async case code...');"
+  },
+  {
+    "title": "Promises",
+    "code": "console.log('Promises code...');"
+  },
+  {
+    "title": "Callbacks",
+    "code": "console.log('Callbacks code...');"
+  },
+  {
+    "title": "Event Loop",
+    "code": "console.log('Event Loop code...');"
+  }
+]
