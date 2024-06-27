@@ -1,18 +1,22 @@
 [
   {
     "title": "Async case",
-    "code": "console.log('Async case code...');"
+    "code": "console.log('Async case code...');",
+    "solution": "console.log('Async case solution...')"
   },
   {
     "title": "Promises",
-    "code": "console.log('Promises code...');"
+    "code": "console.log('Promises code...');",
+    "solution": "console.log('Promises solution...')"
   },
   {
     "title": "Callbacks",
-    "code": "console.log('Callbacks code...');"
+    "code": "console.log('Callbacks code...');",
+    "solution": "console.log('Callbacks solution...')"
   },
   {
     "title": "Event Loop",
-    "code": "console.log('Event Loop code...');"
+    "code": "console.log('Event Loop code...');",
+    "solution": "console.log('Event Loop solution...')"
   }
 ]
