@@ -5,7 +5,7 @@ import { Editor } from '@monaco-editor/react';
 import { io } from 'socket.io-client';
 import './styles.css';
 
-const socket = io('http://localhost:3000');
+const socket = io('https://mycodeblock-backend.onrender.com');
 
 //const originRemote = `https://mycodeblock-backend.onrender.com/code-block/${id}`
 
