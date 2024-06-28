@@ -98,6 +98,10 @@ const CodeBlockPage = () => {
               height="400px"
               extensions={[javascript()]}
               onChange={(value) => handleCodeChange(value)}
+              options={{
+                lineNumbers: true,
+                mode: 'javascript',
+              }}
             />
           </div>
         </>
