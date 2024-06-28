@@ -4,7 +4,7 @@ let socket;
 
 export const initSocket = () => {
     if (!socket) {
-        socket = io('http://localhost:3001'); // Adjust the URL as needed
+        socket = io('https://mycodeblock.onrender.com'); // Adjust the URL as needed
         console.log('Socket initialized');
     }
     return socket;
