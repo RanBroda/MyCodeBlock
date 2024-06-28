@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Editor } from '@monaco-editor/react';
+import CodeMirror from '@uiw/react-codemirror';
+import { javascript } from '@codemirror/lang-javascript';
 import { io } from 'socket.io-client';
 import './styles.css';
 
@@ -59,10 +60,10 @@ const CodeBlockPage = () => {
     }
   };
 
-  const handleCodeChange = (newCode) => {
-    setCode(newCode);
-    socket.emit('code-change', { room: id, code: newCode });
-    checkSolution(newCode);
+  const handleCodeChange = (value) => {
+    setCode(value);
+    socket.emit('code-change', { room: id, code: value });
+    checkSolution(value);
   };
 
   if (loading) {
@@ -92,10 +93,10 @@ const CodeBlockPage = () => {
           <h1>{codeBlock.title}</h1>
           {showSmiley && <div className="smiley">😊</div>}
           <div className="editor">
-            <Editor
-              height="400px"
-              language="javascript"
+            <CodeMirror
               value={code}
+              height="400px"
+              extensions={[javascript()]}
               onChange={(value) => handleCodeChange(value)}
             />
           </div>
