@@ -81,26 +81,28 @@ const CodeBlockPage = () => {
 
         return (
             <div className="code-block">
-                <h1>{codeBlock.title}</h1>
-                {showSmiley && <div className="smiley">😊</div>}
-                <div className="editor">
-                    <Editor
-                        height="20px"
-                        language="javascript"
-                        value={code}
-                        options={{
-                            readOnly: isMentor,
-                        }}
-                        onChange={(value) => handleCodeChange(value)}
-                    />
+              <h1>{codeBlock.title}</h1>
+              {showSmiley && <div className="smiley">😊</div>}
+              <div className="editor">
+                {isMentor ? (
+                  <pre>{code}</pre>
+                ) : (
+                  <Editor
+                    height="400px"
+                    language="javascript"
+                    value={code}
+                    onChange={(value) => handleCodeChange(value)}
+                  />
+                )}
+              </div>
+              {isMentor && (
+                <div className="solution">
+                  <h2>Solution</h2>
+                  <pre>{codeBlock.solution}</pre>
                 </div>
-                {isMentor && (
-                    <div className="solution">
-                        <h2>Solution</h2>
-                        <pre>{codeBlock.solution}</pre>
-                    </div>)}
+              )}
             </div>
-        );
+          );
 };
 
 export default CodeBlockPage;
