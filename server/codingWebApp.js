@@ -8,7 +8,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3001", // Allowing requests from this origin
+        origin: "https://mycodeblock.onrender.com", // Allowing requests from this origin
         methods: ["GET", "POST"] // Allowing only GET and POST methods
     }
 });
@@ -31,7 +31,7 @@ client.connect().then(() => {
 }).catch(err => console.error('Failed to connect to MongoDB', err));
 
 app.use(cors({
-    origin: "http://localhost:3001",
+    origin: "https://mycodeblock.onrender.com",
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
