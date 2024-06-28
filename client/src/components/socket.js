@@ -1,5 +1,5 @@
 import { io } from 'socket.io-client';
-
+const originRemote = 'https://mycodeblock-backend.onrender.com'
 let socket;
 
 export const initSocket = () => {

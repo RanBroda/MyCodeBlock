@@ -1,11 +1,13 @@
-// CodeBlockPage.js
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Editor } from '@monaco-editor/react';
-import { initSocket, getSocket } from './socket';
-
+//import { initSocket } from './socket';
+import { io } from 'socket.io-client';
 import './styles.css';
 
+const socket = io('http://localhost:3000');
+
+//const originRemote = `https://mycodeblock-backend.onrender.com/code-block/${id}`
 
 const CodeBlockPage = () => {
     const { id } = useParams();
@@ -16,7 +18,7 @@ const CodeBlockPage = () => {
     const [isMentor, setIsMentor] = useState(false);
     const [showSmiley, setShowSmiley] = useState(false);
 
-    const socket = initSocket();
+    
 
     useEffect(() => {
         console.log('Fetching code block for title:', id);

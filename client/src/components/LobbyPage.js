@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import {Link} from 'react-router-dom';
 import './styles.css';
-
+const originRemote = `https://mycodeblock-backend.onrender.com/code-block`
 
 const LobbyPage = () => {
     const [codeBlocks, setCodeBlocks] = useState([]);
