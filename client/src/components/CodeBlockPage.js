@@ -20,7 +20,7 @@ const CodeBlockPage = () => {
 
     useEffect(() => {
         console.log('Fetching code block for title:', id);
-        fetch(`/code-block/${id}`)
+        fetch(`https://mycodeblock-backend.onrender.com/code-block/${id}`)
             .then(response => response.json())
             .then(data => {
                 setCodeBlock(data);

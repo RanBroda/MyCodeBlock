@@ -8,7 +8,7 @@ const LobbyPage = () => {
     const [codeBlocks, setCodeBlocks] = useState([]);
     useEffect(() => {
         console.log('Fetching code block for title:', );
-        fetch(`/code-block`)
+        fetch(`https://mycodeblock-backend.onrender.com/code-block`)
             .then(response => response.json())
             .then(data => {
                 setCodeBlocks(data);

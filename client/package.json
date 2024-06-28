@@ -41,7 +41,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://mycodeblock-backend.onrender.com",
+  "proxy": "http://localhost:3000",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
