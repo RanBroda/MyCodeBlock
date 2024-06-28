@@ -3,6 +3,7 @@ const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors'); // Import cors
 const path = require('path');
+const originRemote = "http://localhost:3001"
 
 const app = express();
 const server = http.createServer(app);
