@@ -56,6 +56,10 @@ app.get('/code-block', async (req, res) => {
     }
 });
 
+app.get('/', (_, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
 
