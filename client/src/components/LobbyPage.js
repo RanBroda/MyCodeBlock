@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import {Link} from 'react-router-dom';
-import './components/styles.css';
+import './styles.css';
 
 
 const LobbyPage = () => {
