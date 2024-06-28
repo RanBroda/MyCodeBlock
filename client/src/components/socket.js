@@ -9,10 +9,3 @@ export const initSocket = () => {
     }
     return socket;
 };
-
-export const getSocket = () => {
-    if (!socket) {
-        throw new Error('Socket not initialized. Call initSocket first.');
-    }
-    return socket;
-};

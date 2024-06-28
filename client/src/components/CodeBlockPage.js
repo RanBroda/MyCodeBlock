@@ -16,7 +16,7 @@ const CodeBlockPage = () => {
     const [isMentor, setIsMentor] = useState(false);
     const [showSmiley, setShowSmiley] = useState(false);
 
-    let socket = initSocket();
+    const socket = initSocket();
 
     useEffect(() => {
         console.log('Fetching code block for title:', id);
@@ -26,7 +26,6 @@ const CodeBlockPage = () => {
                 setCodeBlock(data);
                 setCode(data.code);
                 setLoading(false);
-                let socket = getSocket();
                 if (!hasJoinedRef.current){
                     socket.emit('join-room', id); // Join the room based on the code block title
                     hasJoinedRef.current = true;
@@ -37,7 +36,6 @@ const CodeBlockPage = () => {
                 setLoading(false);
             });
 
-        const socket = getSocket();
 
 
         // Handle code updates from other clients
@@ -67,7 +65,6 @@ const CodeBlockPage = () => {
     };
         const handleCodeChange = (newCode) => {
             setCode(newCode);
-            const socket = getSocket();
             socket.emit('code-change', {room: id, code: newCode});
             checkSolution(newCode)
         };
