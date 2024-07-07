@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { io } from 'socket.io-client';
+import constants from '../constants';
 import './styles.css';
 
-const socket = io('https://mycodeblock-backend.onrender.com');
+const socket = io(constants.localBackURL);
 
 const CodeBlockPage = () => {
   const { id } = useParams();
@@ -18,7 +19,7 @@ const CodeBlockPage = () => {
 
   useEffect(() => {
     console.log('Fetching code block for title:', id);
-    fetch(`https://mycodeblock-backend.onrender.com/code-block/${id}`)
+    fetch(`/code-block/${id}`)
       .then(response => response.json())
       .then(data => {
         setCodeBlock(data);
@@ -50,7 +51,7 @@ const CodeBlockPage = () => {
       socket.off('set-role');
       socket.emit('leave-room', id); // Leave the room when component unmounts
     };
-  }, [id]);
+  }, [id]); // Only re-reder this effect if the ID is changed.
 
   const checkSolution = (newCode) => {
     if (codeBlock && newCode.trim() === codeBlock.solution.trim()) {

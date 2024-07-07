@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-
 import {Link} from 'react-router-dom';
 import './styles.css';
-const originRemote = `https://mycodeblock-backend.onrender.com/code-block`
+import constants from '../constants';
 
 const LobbyPage = () => {
     const [codeBlocks, setCodeBlocks] = useState([]);
     useEffect(() => {
         console.log('Fetching code block for title:', );
-        fetch(`https://mycodeblock-backend.onrender.com/code-block`)
+        fetch(`/code-block`)
             .then(response => response.json())
             .then(data => {
                 setCodeBlocks(data);
