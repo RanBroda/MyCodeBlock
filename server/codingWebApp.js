@@ -9,6 +9,12 @@ const initSocket = require('./utils/socket')
 const app = express();
 const server = http.createServer(app);
 
+app.use(cors({
+    origin: constants.remoteClientURL,
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
+
 // require('dotenv').config();
 // const uri = process.env.MONGODB_URI;
 //app.use('', codeBlockRoutes);
@@ -17,6 +23,12 @@ connectDB.initConnectDB().then(() => {
     const codeBlockRoutes = require('./routes/codeBlockRoutes');
     // Use routes after the database connection is established
     app.use('', codeBlockRoutes);
+
+    const io = initSocket(server);
+
+    server.listen(constants.PORT, () => {
+        console.log(`Server running on port ${constants.PORT}`);
+    });
 }).catch(err => {
     console.error('Failed to connect to the database', err);
   });;
@@ -47,13 +59,8 @@ connectDB.initConnectDB().then(() => {
 //     console.log('Connected to MongoDB');
 // }).catch(err => console.error('Failed to connect to MongoDB', err));
 
-app.use(cors({
-    origin: constants.remoteClientURL,
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type']
-}));
 
-const io = initSocket(server);
+
 
 
 
@@ -134,6 +141,3 @@ const io = initSocket(server);
 // });
 
 
-server.listen(constants.PORT, () => {
-    console.log(`Server running on port ${constants.PORT}`);
-});
