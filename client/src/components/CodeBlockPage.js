@@ -6,7 +6,7 @@ import { io } from 'socket.io-client';
 import constants from '../constants';
 import './styles.css';
 
-const socket = io(constants.localBackURL);
+const socket = io(constants.remoteBackURL);
 
 const CodeBlockPage = () => {
   const { id } = useParams();
