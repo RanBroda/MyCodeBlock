@@ -6,7 +6,7 @@ let io;
 const initSocket = (server) => {
         const io = new Server(server, {
         cors: {
-            origin: constants.localClientURL, // Allowing requests from this origin
+            origin: constants.remoteClientURL, // Allowing requests from this origin
             methods: ["GET", "POST"] // Allowing only GET and POST methods
         }
     });

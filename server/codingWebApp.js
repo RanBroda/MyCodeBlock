@@ -48,7 +48,7 @@ connectDB.initConnectDB().then(() => {
 // }).catch(err => console.error('Failed to connect to MongoDB', err));
 
 app.use(cors({
-    origin: constants.localClientURL,
+    origin: constants.remoteClientURL,
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
