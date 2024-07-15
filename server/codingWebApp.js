@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+const bodyParser = require('body-parser');
 // const { Server } = require('socket.io');
 const cors = require('cors'); // Import cors
 // const path = require('path');
@@ -16,6 +17,8 @@ app.use(cors({
     allowedHeaders: ['Content-Type']
 }));
 
+app.use(bodyParser.json());
+
 // require('dotenv').config();
 // const uri = process.env.MONGODB_URI;
 //app.use('', codeBlockRoutes);
@@ -23,7 +26,11 @@ app.use(cors({
 connectDB.initConnectDB().then(() => {
     const codeBlockRoutes = require('./routes/codeBlockRoutes');
     // Use routes after the database connection is established
-    app.use('', codeBlockRoutes);
+    app.use('/api/code-block', codeBlockRoutes);
+
+    app.get('/', (_, res) => {
+        res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    });
 
     const io = initSocket(server);
 
@@ -85,9 +92,7 @@ connectDB.initConnectDB().then(() => {
 //     }
 // });
 
-app.get('/', (_, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+
 
 // io.on('connection', (socket) => {
 //     console.log('A user connected:', socket.id);
