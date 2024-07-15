@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 connectDB.initConnectDB().then(() => {
     const codeBlockRoutes = require('./routes/codeBlockRoutes');
     // Use routes after the database connection is established
-    app.use('/api/code-block', codeBlockRoutes);
+    app.use('/api', codeBlockRoutes);
 
     app.get('/', (_, res) => {
         res.sendFile(path.join(__dirname, 'public', 'index.html'));
